@@ -14,9 +14,14 @@ st.set_page_config(page_title="Momentum Radar", layout="wide")
 st.sidebar.header("⚙️ Scan Settings")
 
 MAX_PRICE = st.sidebar.slider("Max Stock Price ($)", 0.5, 20.0, 4.0, 0.5)
-MIN_VOLUME = st.sidebar.number_input("Min Avg Volume", 10_000, 10_000_000, 100_000, step=50_000)
+
+unlimited_price = st.sidebar.checkbox("No max price limit (scan all stocks)")
 
 st.title(f"📈 Sub-${MAX_PRICE} Momentum Radar (Live)")
+
+MIN_VOLUME = st.sidebar.number_input("Min Avg Volume", 10_000, 10_000_000, 100_000, step=50_000)
+
+
 
 refresh_rate = st.sidebar.slider("Auto Refresh (seconds)", 5, 60, 15)
 
